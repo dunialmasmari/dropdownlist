@@ -25,8 +25,8 @@
         <title>Document</title>
     </head>
 
-    <body style="height: 100%; width: 100%; padding:0; margin:0; overflow: hidden;">
-            <div class="card border-info " style="width: 30rem; margin: auto; top:20vh;">
+    <body style="height: 100%; width: 100%; padding:0; margin:0; ">
+            <div class="card border-info my-4" style="width: 30rem; margin: auto;">
                 <div class="card-header">
                    Select Your Address
                   </div>
@@ -44,20 +44,23 @@
                         <option value="0">Select a City</option>
 
                     </select>
-                    <h5 class="card-title">select street:</h5>
-                    <select class="form-control" id="streets">
+                    <!--select class="form-control" id="streets">
                         <option value="0">Select a Street</option>
 
                         
-                    </select>
+                    </select-->
                 </form>
                 </div>
                 <div class="card-footer text-muted">
                    Thank you ..
                   </div>
-
+              
             </div>
-
+            <div class="card-deck mx-5 " id="cityimages">
+           
+              
+            </div>
+            
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -85,7 +88,7 @@
                         break;
                     case "Yemen":
 
-                        while (citiesElement.options.length > 0) {
+                        while (citiesElement.options.length > 1) {
                             citiesElement.remove(0);
                         }
                         city = ["Aden", "Sana'a", "Taiz"];
@@ -116,7 +119,7 @@
                                 citiesElement.appendChild(newOption);
                             }
                         } break;
-                    case "Germany":
+                   /* case "Germany":
                         while (citiesElement.options.length > 0) {
                             citiesElement.remove(0);
                         }
@@ -131,11 +134,11 @@
                             catch (e) {
                                 citiesElement.appendChild(newOption);
                             }
-                        } break;
+                        } break;*/
 
                 }
             }
-                var StreetsList = new Array(4)
+               /* var StreetsList = new Array(4)
                 StreetsList["empty"] = ["Select a City"];
                 StreetsList["Aden"] = ["Almuala", "KhoorMaksar"];
                 StreetsList["Sana'a"] = ["Hadah", "Alasbahi"];
@@ -144,37 +147,45 @@
                 StreetsList["Hamburg"] = ["Mönckebergstrasse", "Grosse Bleichen"];
                 StreetsList["Munich"] = ["Brienner Straße", "Maximilianstra "];
                 StreetsList["Cairo"] = ["Muizz", "Saliba "];
-                StreetsList["Alexandria"] = ["King Street"];
+                StreetsList["Alexandria"] = ["King Street"];*/
                function cityChange(selectObj) {
                 var citiesElement = document.getElementById("cities");
-                var streetsElement = document.getElementById("streets");
+               // var streetsElement = document.getElementById("streets");
+                var imagesElement = document.getElementById("cityimages");
 
                 // function countrychange() {
                 // console.log(countriesElement.value)
                 // var index = selectObj.selectedIndex;
                  var currentcityvalue = citiesElement.value;
-                 console.log(currentcityvalue)
-                streetsList = StreetsList[currentcityvalue];
-                console.log(streetsList)
+                 //console.log(currentcityvalue)
+               // streetsList = StreetsList[currentcityvalue];
+                //console.log(streetsList)
 
                 // var citiesElement = document.getElementById("cities");
                  // var len = citiesElement.options.length;
-                 while (streetsElement.options.length > 0) {
-                    streetsElement.remove(0);
-                }
+                // while (streetsElement.options.length > 0) {
+                //    streetsElement.remove(0);
+                //}
+                //while (imagesElement.images.length > 0) {
+                //    imagesElement.remove(0);
+                //}
                 //
                 // create new options 
-                 for (var i = 0; i < streetsList.length; i++) {
-                     newOption = document.createElement("option");
-                     newOption.value = streetsList[i];  
-                     newOption.text = streetsList[i];
-                     try {
-                        streetsElement.add(newOption);
-                     }
-                     catch (e) {
-                        streetsElement.appendChild(newOption);
-                     }
+
+                var x ='';
+                 for (var i = 1; i < 4; i++) {
+                    x+= '<div class="card"><img class="card-img-top" src="assets/'+currentcityvalue+i+'.jpg" height="300px;" > </div>'; 
+                    // newOption = document.createElement("option");
+                    // newOption.value = streetsList[i];  
+                    // newOption.text = streetsList[i];
+                    // try {
+                    //    streetsElement.add(newOption);
+                    // }
+                    // catch (e) {
+                    //    streetsElement.appendChild(newOption);
+                    // }
                  }
+                 imagesElement.innerHTML=x;
                }
           
 //]]>
