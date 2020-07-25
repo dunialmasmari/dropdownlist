@@ -34,14 +34,16 @@
                     <form action="">
                     <h5 class="card-title">select country:</h5>
                     <select class="form-control" id="countries" onchange="countryChange(this);">
-                        <option value="empty">Select a Country</option>
+                        <!--option value="empty">Select a Country</option-->
                         <option value="Yemen">Yemen</option>
                         <option value="Egypt">Egypt</option>
-                        <option value="Germany">Germany</option>
                     </select>
                     <h5 class="card-title">select city:</h5>
                     <select class="form-control" id="cities" onchange="cityChange(this)">
-                        <option value="0">Select a City</option>
+                        <!--option value="0">Select a City</option-->
+                        <option value="Aden">Aden</option>
+                        <option value="Sana'a">Sana'a</option>
+                        <option value="Taiz">Taiz</option>
 
                     </select>
                     <!--select class="form-control" id="streets">
@@ -58,7 +60,9 @@
             </div>
             <div class="card-deck mx-5 " id="cityimages">
            
-              
+                <div class="card"><img class="card-img-top" src="assets/Aden1.jpg" height="250px;" > </div>
+                <div class="card"><img class="card-img-top" src="assets/Aden2.jpg" height="250px;" > </div>
+                <div class="card"><img class="card-img-top" src="assets/Aden3.jpg" height="250px;" > </div>
             </div>
             
 
@@ -75,7 +79,6 @@
             crossorigin="anonymous"></script>
         <script>
 
-           
             function countryChange(selectObj) {
                 var countriesElement = document.getElementById("countries");
                 var citiesElement = document.getElementById("cities");
@@ -88,7 +91,7 @@
                         break;
                     case "Yemen":
 
-                        while (citiesElement.options.length > 1) {
+                        while (citiesElement.options.length > 0) {
                             citiesElement.remove(0);
                         }
                         city = ["Aden", "Sana'a", "Taiz"];
@@ -119,71 +122,30 @@
                                 citiesElement.appendChild(newOption);
                             }
                         } break;
-                   /* case "Germany":
-                        while (citiesElement.options.length > 0) {
-                            citiesElement.remove(0);
-                        }
-                        city = ["Munich", "Hamburg", "Berlin"];
-                        for (var i = 0; i < city.length; i++) {
-                            newOption = document.createElement("option");
-                            newOption.value = city[i];
-                            newOption.text = city[i];
-                            try {
-                                citiesElement.add(newOption);
-                            }
-                            catch (e) {
-                                citiesElement.appendChild(newOption);
-                            }
-                        } break;*/
 
                 }
-            }
-               /* var StreetsList = new Array(4)
-                StreetsList["empty"] = ["Select a City"];
-                StreetsList["Aden"] = ["Almuala", "KhoorMaksar"];
-                StreetsList["Sana'a"] = ["Hadah", "Alasbahi"];
-                StreetsList["Taiz"] = ["streetonetaiz", "streetwotaiz"];
-                StreetsList["Berlin"] = ["Ku'damm", "Potsdamer Platz"];
-                StreetsList["Hamburg"] = ["Mönckebergstrasse", "Grosse Bleichen"];
-                StreetsList["Munich"] = ["Brienner Straße", "Maximilianstra "];
-                StreetsList["Cairo"] = ["Muizz", "Saliba "];
-                StreetsList["Alexandria"] = ["King Street"];*/
-               function cityChange(selectObj) {
-                var citiesElement = document.getElementById("cities");
-               // var streetsElement = document.getElementById("streets");
                 var imagesElement = document.getElementById("cityimages");
 
-                // function countrychange() {
-                // console.log(countriesElement.value)
-                // var index = selectObj.selectedIndex;
                  var currentcityvalue = citiesElement.value;
-                 //console.log(currentcityvalue)
-               // streetsList = StreetsList[currentcityvalue];
-                //console.log(streetsList)
-
-                // var citiesElement = document.getElementById("cities");
-                 // var len = citiesElement.options.length;
-                // while (streetsElement.options.length > 0) {
-                //    streetsElement.remove(0);
-                //}
-                //while (imagesElement.images.length > 0) {
-                //    imagesElement.remove(0);
-                //}
-                //
-                // create new options 
 
                 var x ='';
                  for (var i = 1; i < 4; i++) {
                     x+= '<div class="card"><img class="card-img-top" src="assets/'+currentcityvalue+i+'.jpg" height="250px;" > </div>'; 
-                    // newOption = document.createElement("option");
-                    // newOption.value = streetsList[i];  
-                    // newOption.text = streetsList[i];
-                    // try {
-                    //    streetsElement.add(newOption);
-                    // }
-                    // catch (e) {
-                    //    streetsElement.appendChild(newOption);
-                    // }
+          
+                 }
+                 imagesElement.innerHTML=x;
+
+            }
+               function cityChange(selectObj) {
+                var citiesElement = document.getElementById("cities");
+                var imagesElement = document.getElementById("cityimages");
+
+                 var currentcityvalue = citiesElement.value;
+
+                var x ='';
+                 for (var i = 1; i < 4; i++) {
+                    x+= '<div class="card"><img class="card-img-top" src="assets/'+currentcityvalue+i+'.jpg" height="250px;" > </div>'; 
+          
                  }
                  imagesElement.innerHTML=x;
                }
