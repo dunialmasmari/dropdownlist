@@ -5,13 +5,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Dunia's Portfolio</title>
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <title>Dunia's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+ <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </head>
 
 <body>
@@ -33,13 +35,13 @@
                 <div class="card-body col-12">
                     <form action="">
                     <h5 class="card-title">select country:</h5>
-                    <select class="form-control" id="countries" onchange="countryChange(this);">
+                    <select class="form-control" id="countries" >
                         <!--option value="empty">Select a Country</option-->
                         <option value="Yemen">Yemen</option>
                         <option value="Egypt">Egypt</option>
                     </select>
                     <h5 class="card-title">select city:</h5>
-                    <select class="form-control" id="cities" onchange="cityChange(this)">
+                    <select class="form-control" id="cities" >
                         <!--option value="0">Select a City</option-->
                         <option value="Aden">Aden</option>
                         <option value="Sana'a">Sana'a</option>
@@ -58,28 +60,110 @@
                   </div>
               
             </div>
-            <div class="card-deck mx-5 " id="cityimages">
-           
-                <div class="card"><img class="card-img-top" src="assets/Aden1.jpg" height="250px;" > </div>
+            <div class="container px-auto mx-auto " >
+
+
+
+                <div class="row " id="cityimages">
+        
+        
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb  mx-auto">
+                        <a href="assets/Aden1.jpg" id="link1" class="fancybox" rel="ligthbox">
+                            <img  src="assets/Aden1.jpg" class="zoom img-fluid " id="image1"  alt="">
+                           
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb  mx-auto">
+                        <a href="assets/Aden2.jpg" id="link2" class="fancybox" rel="ligthbox">
+                            <img  src="assets/Aden2.jpg" class="zoom img-fluid" id="image2" alt="">
+                        </a>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb  mx-auto">
+                        <a href="assets/Aden3.jpg" id="link3" class="fancybox" rel="ligthbox">
+                            <img  src="assets/Aden3.jpg" class="zoom img-fluid " id="image3" alt="">
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    
+                   
+                   
+               </div>
+        
+             
+              
+        
+            </div>
+
+            <!--div class="card-deck mx-5 " id="cityimages">
+                
+                <div class="card"><div class="col-lg-3 col-md-4 col-xs-6 thumb mx-auto">
+                    <a href="assets/Aden1.jpg" class="fancybox" rel="ligthbox">
+                        <img  src="assets/Aden1.jpg" class="zoom img-fluid "  alt="">
+                       
+                    </a>
+                </div> </div>
                 <div class="card"><img class="card-img-top" src="assets/Aden2.jpg" height="250px;" > </div>
                 <div class="card"><img class="card-img-top" src="assets/Aden3.jpg" height="250px;" > </div>
-            </div>
+            </div-->
             
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"></script>
+        
         <script>
+ 
+    
+$(document).ready(function(){
+  $(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+    });
+    
+    $(".zoom").hover(function(){
+		
+		$(this).addClass('transition');
+	}, function(){
+        
+		$(this).removeClass('transition');
+	});
+    $("#countries").on("change",function(){
+      var city;
+      console.log($("#cities").options)
+        $("#cities").empty()
+    
+                   if(  $(this).children("option:selected").val()==="Yemen")
+                     {   city = ["Aden", "Sana'a", "Taiz"];
+                     }
+                     if(  $(this).children("option:selected").val()==="Egypt")
+                     {   city = ["Cairo", "Alexandria"];
+                     }
+                     city.forEach(element => {
+                        $("#cities").append('<option  value="'+element+'">'+element+'</option>')
+                        .find('option:first')
+    .attr("selected","selected")
+       });
+   console.log( $("#cities").children("option:selected").val())
+   for (var i = 1; i < 4; i++) {
+        $("#image"+i).attr("src","assets/"+$("#cities").children("option:selected").val()+i+'.jpg')
+        $("#link"+i).attr("href","assets/"+$("#cities").children("option:selected").val()+i+'.jpg')
+        }
 
-            function countryChange(selectObj) {
+
+    })
+    $("#cities").on("change",function(){
+   console.log( $("#cities").children("option:selected").val())
+        for (var i = 1; i < 4; i++) {
+        $("#image"+i).attr("src","assets/"+$(this).children("option:selected").val()+i+'.jpg')
+        $("#link"+i).attr("href","assets/"+$(this).children("option:selected").val()+i+'.jpg')
+        }
+
+    })
+});
+    
+        /*    function countryChange(selectObj) {
                 var countriesElement = document.getElementById("countries");
                 var citiesElement = document.getElementById("cities");
                 // function countrychange() {
@@ -130,7 +214,7 @@
 
                 var x ='';
                  for (var i = 1; i < 4; i++) {
-                    x+= '<div class="card"><img class="card-img-top" src="assets/'+currentcityvalue+i+'.jpg" height="250px;" > </div>'; 
+                    x+= ' <div class="col-lg-3 col-md-4 col-xs-6 thumb  mx-auto"><a href="assets/'+currentcityvalue+i+'.jpg" class="fancybox" rel="ligthbox"><img  src="assets/'+currentcityvalue+i+'.jpg" class="zoom img-fluid "  alt=""></a></div>'; 
           
                  }
                  imagesElement.innerHTML=x;
@@ -144,11 +228,11 @@
 
                 var x ='';
                  for (var i = 1; i < 4; i++) {
-                    x+= '<div class="card"><img class="card-img-top" src="assets/'+currentcityvalue+i+'.jpg" height="250px;" > </div>'; 
+                    x+= ' <div class="col-lg-3 col-md-4 col-xs-6 thumb  mx-auto"><a href="assets/'+currentcityvalue+i+'.jpg" class="fancybox" rel="ligthbox"><img  src="assets/'+currentcityvalue+i+'.jpg" class="zoom img-fluid "  alt=""></a></div>'; 
           
                  }
                  imagesElement.innerHTML=x;
-               }
+               }*/
           
 //]]>
 
